@@ -1,0 +1,10 @@
+import  socket
+server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+server.bind(('localhost',34443))
+server.listen(3)
+print('server is listing.....')
+con,address=server.accept()
+print("connected with ",address)
+con.send('Thanks you are connected'.encode())
+mes=con.recv(1024)
+print(mes.decode())
