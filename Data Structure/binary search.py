@@ -1,3 +1,4 @@
+
 def findStep(arr,q):
     l=0
     r=len(arr)-1

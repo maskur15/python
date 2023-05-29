@@ -51,6 +51,7 @@ class singlyLinkedlist:
 
 
 if __name__ == '__main__':
+
     link = singlyLinkedlist()
     link.insertEnd(Node(2))
     link.insertEnd(Node(1))
