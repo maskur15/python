@@ -1,19 +1,22 @@
-def solve(word1,word2):
-    ans = ""
-    if len(word1) > len(word2):
-        for i in range(len(word2)):
-            ans += word1[i]
-            ans += word2[i]
-        ans += word1[len(word2):]
+def binaryPow(a,n,mod):
+    if n==0:
+        return 1
+    if n==1:
+        return  a
+    if n%2==0:
+        return  binaryPow((a*a)%mod,n//2,mod)%mod
     else:
-        for i in range(len(word1)):
-            ans += word1[i]
-            ans += word2[i]
-        ans += word2[len(word1):]
-    return ans
+        return  a*binaryPow((a*a)%mod,n//2,mod)%mod
 
 
 if __name__=='__main__':
-    while True:
-         a,b = (input().split())
-         print(solve(a,b))
+ while True:
+    n= int(input())
+    mod = 1000000007
+    if n%2==0:
+        ans1 = binaryPow(5,n//2,mod)
+        ans2 = binaryPow(4,n//2,mod)
+    else:
+        ans1 = binaryPow(5,n//2+1,mod)
+        ans2 = binaryPow(4,n//2,mod)
+    print(ans1*ans2 % mod)
