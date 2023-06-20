@@ -8,8 +8,9 @@ def mergeSort(ar):
     ar2 = mergeSort(right_arr)
     print(ar1," <> ",ar2)
     return merge(ar1,ar2)
-def merge(left_arr,right_arr):
+   # return merge(ar,ar1,ar2) #passing the array will mdify the original array
 
+def merge(left_arr,right_arr):
     i=j=k=0
     ar=[0]*(len(left_arr)+len(right_arr))
     while i<len(left_arr) and j<len(right_arr):
@@ -31,3 +32,4 @@ def merge(left_arr,right_arr):
 if __name__ == '__main__':
     ar = [6,2,3,5,1,7,9,8]
     print(mergeSort(ar))
+    print(ar)
