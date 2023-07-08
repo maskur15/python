@@ -1,67 +1,23 @@
-class Node:
-   def __init__(self,data):
-      self.data = data
-      self.next = None
-class singlyLinkedlist:
-   def __init__(self):
-      self.head = None
-   #insert node in the end of the list
-   def insertEnd(self,node):
-      if self.head==None:
-         self.head = node
-      else:
-         currnent = self.head
-         while currnent.next is not None:
-            currnent=currnent.next
-         currnent.next=node
-   def showList(self):
-      if self.head == None:
-         print('Empty list')
-      current = self.head
-      while current is not None:
-         print(current.data)
-         current=current.next
-   #insert a new node as a head node of the list
-   def insertFront(self,node):
-      node.next= self.head
-      self.head = node
-   # find the length of the list
-   def listLength(self):
-       current = self.head
-       i=0
-       while current is not None:
-           current=current.next
-           i+=1
-       return  i
-   #insert a node  in between two node
-   def insertinPosition(self,index,node):
-       current = self.head
-       i=0
-       if index==0:
-           self.insertFront()
+from collections import  defaultdict
+def getCombinationSum(candidates,target):
+    candidates.sort()
+    mp = defaultdict(list)
 
-           return
-       while current is not None:
-           if i== index-1:
-               break
-           current=current.next
-           i+=1
-       node.next = current.next
-       current.next = node
+    print(mp)
+    mp[1].append([2,4,6])
+    mp[1].append([2,15,5])
+    mp[3].append([1,2,4])
 
+    for v in mp:
+        print(v)
+    print(mp)
+    for v in mp:
+        print(v,': ')
+        for ar in mp[v]:
+            print(ar)
 
 if __name__ == '__main__':
-
-    link = singlyLinkedlist()
-    link.insertEnd(Node(2))
-    link.insertEnd(Node(1))
-    link.insertEnd(Node(33))
-    link.insertEnd(Node(3))
-    link.showList()
-    print('insert in 1th position')
-    link.insertinPosition(2,Node(99))
-    link.showList()
-    print('insert in head ')
-    link.insertFront(Node(222))
-    link.insertFront(Node(111))
-    link.showList()
+    while True:
+        candidates = list(map(int,input().split()))
+        getCombinationSum(candidates,7)
+        print(candidates)
