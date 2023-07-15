@@ -27,22 +27,6 @@ def merge_sort(nums):
             j += 1
             k += 1
     return nums
-
-def solve(nums):
-    count = 0
-    result =0
-    for v  in nums:
-        if count==0:
-            result=v
-            count+=1
-        else:
-            if result==v:
-                count+=1
-            else:
-                count-=1
-    return result
-
 if __name__ == '__main__':
-    while True:
-        ar = list(map(int,input().split()))
-        print(solve(ar))
+    ar = [1,3,1,5,2]
+    print(merge_sort(ar))
