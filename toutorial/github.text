@@ -1,0 +1,8 @@
+use
+git add -A
+git commit
+i-> for insert message
+ctrl+c
+:wq
+git push main #to upload in remote repo
+git version -v# showing the remote

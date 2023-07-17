@@ -29,12 +29,48 @@ class Node:
                 return self.left.search(data)
             else:
                 return False
+    def inorder(self):
+        if self.left:
+            self.left.inorder()
+        print(self.val,end=' ')
+        if self.right:
+            self.right.inorder()
+    def preorder(self):
+        print(self.val,end=' ')
+        if self.left:
+          self.left.preorder()
+        if self.right:
+            self.right.preorder()
+    def postorder(self):
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+        print(self.val,end=' ')
+def inorderUsingStack(root):
+    stack=[]
+    while root or stack:
+        while root:
+            stack.append(root)
+            root= root.left
+        if stack:
+            root = stack.pop()
+            print(root.val,end=' ')
+            root=root.right
+
 if __name__ == '__main__':
-    root = Node(15)
+    root = Node(54)
+    root.insert(34)
+    root.insert(46)
     root.insert(12)
-    root.insert(19)
-    root.insert(3)
-    root.insert(10)
-    root.insert(45)
-    print(root.search(19))
-    print(root.search(2))
+    root.insert(23)
+    root.insert(5)
+
+    print('inorder : ')
+    root.inorder()
+    print('\npreorder : ')
+    root.preorder()
+    print('\npost order : ')
+    root.postorder()
+    print('\ninorder:')
+    inorderUsingStack(root)
