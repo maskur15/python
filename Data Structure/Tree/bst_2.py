@@ -47,6 +47,23 @@ class Node:
         if self.right:
             self.right.preorder()
         print(self.val,end=' ')
+def insert_usingLoop(root,val):
+    temp=root
+    node = Node(val)
+    while True:
+        if temp.val<val:
+            if temp.right==None:
+                temp.right=node
+                break
+            else:
+                temp=temp.right
+        else:
+            if temp.left==None:
+                temp.left=node
+                break
+            else:
+                temp=temp.left
+
 def inorderUsingStack(root):
     stack=[]
     while root or stack:
@@ -65,7 +82,6 @@ if __name__ == '__main__':
     root.insert(12)
     root.insert(23)
     root.insert(5)
-
     print('inorder : ')
     root.inorder()
     print('\npreorder : ')
