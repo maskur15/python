@@ -10,22 +10,22 @@ def preorder(root):
         preorder(root.left)
     if root.right:
         preorder(root.right)
-def insert(root,val):
-    if root.val<val:
-        if root.right:
-            insert(root.right,val)
-        else:
-            root.right = TreeNode(val)
-    else:
-        if root.left:
-            insert(root.left,val)
-        else:
-            root.left=TreeNode(val)
-    #return root
+
+def insert(root,pos,ar,mx):
+    if pos==len(ar):
+        return pos
+    if ar[pos]<root.val:
+        root.left=TreeNode(ar[pos])
+        pos+=1
+        pos= insert(root.left,pos,ar,root.val-1)
+    if ar[pos]<=mx:
+        root.right=TreeNode(ar[pos])
+        pos+=1
+        pos=insert(root.right,pos,ar,mx)
+    return pos
 if __name__ == '__main__':
     ar=list(map(int,input().split()))
     root=TreeNode(ar[0])
-    for v in ar[1:]:
-        insert(root,v)
+    insert(root,1,ar,ar[len(ar)-1])
     preorder(root)
 

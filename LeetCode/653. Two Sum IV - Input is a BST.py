@@ -37,15 +37,21 @@ def insert_usingStack(root,val):
             else:
                 temp=temp.left
 
-
-def inorder(root):
-    if root==None:
-        return
+isPresent={}
+ans=False
+def inorder(root,target):
+    global ans
     if root.left:
-        inorder(root.left)
-    print(root.val)
+        inorder(root.left,target)
+    num=target-root.val
+    if num in isPresent:
+        print(num,root.val)
+        ans=True
+    else:
+        isPresent[root.val]=1
+
     if root.right:
-        inorder(root.right)
+        inorder(root.right,target)
 if __name__ == '__main__':
     root=TreeNode(5)
     # root=insert(root,10)
@@ -60,4 +66,4 @@ if __name__ == '__main__':
     insert_usingStack(root,9)
     insert_usingStack(root,6)
     insert_usingStack(root,13)
-    inorder(root)
+    inorder(root,1)
